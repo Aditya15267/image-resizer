@@ -3,6 +3,10 @@ import os
 import argparse
 
 def resize_images(input_folder, output_folder, width, height):
+    """
+    Resize all images in the input folder and save them to the output folder.
+    """
+    
     if not os.path.exists(output_folder):
         os.makedirs(output_folder)
 
@@ -25,8 +29,8 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Resize all images in a folder')
     parser.add_argument('input', type=str, help='Path to the input folder')
     parser.add_argument('output', type=str, help='Path to the output folder')
-    parser.add_argument('--width', type=int, default=800, help='Width of resized images')
-    parser.add_argument('--height', type=int, default=600, help='Height of resized images')
+    parser.add_argument('--width', type=int, default=300, help='Width of resized images')
+    parser.add_argument('--height', type=int, default=300, help='Height of resized images')
 
     args = parser.parse_args()
     resize_images(args.input, args.output, args.width, args.height)
